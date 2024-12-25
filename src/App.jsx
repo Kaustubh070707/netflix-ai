@@ -1,10 +1,9 @@
+import Body from "./components/Body.jsx"
 
 function App() {
 
   return (
-    <div className="text-3xl font-bold underline">
-    Hello
-    </div>
+    <Body/>
   )
 }
 
