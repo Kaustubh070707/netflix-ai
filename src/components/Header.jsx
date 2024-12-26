@@ -27,7 +27,6 @@ const Header = () => {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    console.log(user);
   };
 
   const handleSignOut = () => {
