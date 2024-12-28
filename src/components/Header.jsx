@@ -13,6 +13,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+  const gptActive = useSelector((store) => store.ai.showAiSearch);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -48,7 +49,6 @@ const Header = () => {
   };
 
   const handleLanguageChange = (event) => {
-    console.log(event.target.value);
     dispatch(changeLanguage(event.target.value));
   };
 
@@ -61,21 +61,22 @@ const Header = () => {
             className="py-2 px-4 bg-red-800 text-white rounded-lg cursor-pointer"
             onClick={handleAiSearchClick}
           >
-            AI Search
+            {gptActive ? "HomePage" : "AI Search"}
           </div>
 
-          <select
-            className="py-2 px-4 bg-red-800 text-white rounded-lg cursor-pointer"
-            onChange={handleLanguageChange}
-          >
-            {SUPPORTED_LANGUAGE.map(({ identifier, name }) => (
-              <option key={identifier} value={identifier}>
-                {name}
-              </option>
-            ))}
-          </select>
+          {gptActive && (
+            <select
+              className="py-2 px-4 bg-red-800 text-white rounded-lg cursor-pointer"
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGE.map(({ identifier, name }) => (
+                <option key={identifier} value={identifier}>
+                  {name}
+                </option>
+              ))}
+            </select>
+          )}
 
-          {/* User Icon and Menu */}
           <img
             src={USER_ICON}
             alt="user-icon"
