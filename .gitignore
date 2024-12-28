@@ -10,8 +10,8 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-/src/utils/constants.jsx
-/src/utils/firebase.jsx
+src/utils/constants.jsx
+src/utils/firebase.jsx
 *.local
 
 # Editor directories and files
